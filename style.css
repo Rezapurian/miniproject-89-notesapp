@@ -1,9 +1,7 @@
-@font-face {
-  font-family: vazir;
-  src: url(/font/Vazir-Regular.woff) format("woff");
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Material+Icons");
+
 * {
-  font-family: vazir;
+  font-family: "Poppins", serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,8 +52,8 @@ body {
     justify-content: space-between;
 }
 .note .details {
-    max-height: 165px;
-    overflow-y: auto;
+    max-height: 200px;
+    overflow-y: hidden;
 }
 .note p {
     font-size: 22px;
@@ -66,6 +64,13 @@ body {
     margin-top: 5px;
     color: #575757;
     font-size: 16px;
+}
+.note img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
 }
 .note .bottom-content {
     padding-top: 10px;
@@ -163,11 +168,45 @@ body {
 }
 .content form .row {
     margin-bottom: 20px;
+    position: relative;
 }
 form .row label {
     display: block;
     font-size: 18px;
     margin-bottom: 6px;
+}
+.row .file-upload-wrapper {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    padding: 0 10px;
+}
+.row .file-upload-wrapper :where(img, #file-upload, #file-cancel ) {
+    position: absolute;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.row .file-upload-wrapper img {
+    object-fit: cover;
+}
+.row .file-upload-wrapper #file-cancel {
+    background: #fff;
+    color: #ff0000;
+}
+.row .file-upload-wrapper :where(img, #file-cancel),
+.row .file-upload-wrapper.file-uploaded #file-upload {
+  display: none;
+}
+.row .file-upload-wrapper.file-uploaded img,
+.row .file-upload-wrapper.file-uploaded:hover #file-cancel {
+  display: block;
 }
 .content form :where(input, textarea) {
     width: 100%;
@@ -179,11 +218,22 @@ form .row label {
     outline: none;
 }
 .content form textarea {
-    height: 150px;
+    height: 100px;
     resize: none;
     padding: 8px 15px;
 }
-.content form button {
+.popup-image {
+    width: 180px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+.popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.content form #add-btn {
     width: 100%;
     height: 50px;
     background: #88abff;

@@ -21,12 +21,21 @@
             <div class="row title">
               <label>Title</label>
               <input type="text">
+              <div class="file-upload-wrapper">
+                <input type="file" accept="images/*" id="file-input" hidden>
+                <img id="file-upload-wrapper-image" src="#">
+                <button type="button" id="file-upload"><i class="fa-solid fa-paperclip"></i></button>
+                <button type="button" id="file-cancel"><i class="fa-solid fa-xmark"></i></button>
+              </div>
             </div>
             <div class="row description">
               <label>Description</label>
               <textarea></textarea>
             </div>
-            <button>Add Note</button>
+            <div class="popup-image">
+              <img src="">
+            </div>
+            <button id="add-btn">Add Note</button>
           </form>
         </div>
       </div>
